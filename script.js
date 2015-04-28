@@ -21,8 +21,8 @@ function displayStuff(results) {
 					var description = "No Info Available";
 				}
 		
-		$(".displayGames").append("<div class='col-md-4 className group" + results[j].id + "'><img src='" + results[j].image.small_url +"'/>"+ "<br>" + results[j].name +"</div>");
-		$(".group"+results[j].id).append("<div class='hidden'><b>Description:</b> " + description + "<br><b>Platform: </b>" + results[j].platforms[0].name + "<br><b>Release Date: </b>" + results[j].original_release_date + "</p></div>");
+		$(".displayGames").append("<div class='col-md-4 className group" + results[j].id + "'><img src='" + results[j].image.medium_url +"'/>"+ "<br>" + results[j].name +"</div>");
+		$(".group"+results[j].id).append("<div class='hidden'><img src='" + results[j].image.medium_url +"'/>"+ "<br><b>Description:</b> " + description + "<br><b>Platform: </b>" + results[j].platforms[0].name + "<br><b>Release Date: </b>" + results[j].original_release_date + "</p></div>");
 		
 	}
 }
@@ -59,6 +59,7 @@ $(document).ready(function() {
 		$(this).animate({height: 'auto'});
 		$(this).animate({width: 'auto'});
 	});
+
 });
 
 

@@ -2,6 +2,7 @@ body {
     text-align: center;
     background-color: #000000;
     color: #ffffff;
+    font-family: "Droid Serif";
 }
 
 img {
@@ -16,7 +17,27 @@ img {
     color: #000000;
 }
 
+.searchButton {
+    width: auto;
+    height: auto;
+    background-color: #00ff00;
+    color: #000000;
+    margin: 5px auto;
+    font-size: 24px;
+    border-radius: 10px;
+}
+
 .className {
     border-radius: 10px;
-    margin: 5px;
+    margin: 20px;
+    background-color: #000000;
+}
+
+.hidden {
+    display: none;
+}
+
+.displayGames {
+    background-image: url("dark_embroidery.png");
+    border-radius: 10px;
 }

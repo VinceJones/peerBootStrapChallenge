@@ -15,13 +15,18 @@ function searchCallback(results) {
 
 function displayStuff(results) {
 	for (j = 0; j < results.length; j++) {
-		$(".displayGames").append("<div class='col-md-4 className' data-id='" + results[j].id + "'><img src='" + results[j].image.small_url +"'/>"+ "<br>" + results[j].name +"</div>");
+		if (results[j].deck != null) {
+					var description = results[j].deck;
+				} else {
+					var description = "No Info Available";
+				}
+		
+		$(".displayGames").append("<div class='col-md-4 className group" + results[j].id + "'><img src='" + results[j].image.small_url +"'/>"+ "<br>" + results[j].name +"</div>");
+		$(".group"+results[j].id).append("<div class='hidden'><b>Description:</b> " + description + "<br><b>Platform: </b>" + results[j].platforms[0].name + "<br><b>Release Date: </b>" + results[j].original_release_date + "</p></div>");
+		
 	}
 }
 
-
-// HELPER FUNCTION
-// Executes a search using 'query' and runs searchCallback on the results of a success.
 function search(query){
 	$.ajax ({
 	    type: 'GET',
@@ -48,21 +53,11 @@ $(document).ready(function() {
 	});
 
 	$(".displayGames").on("click", ".className",function(){
-		var name = $(this).data("id");
-		for (i = 0; i < array.length; i++) {
-			if (array[i].id == name){
-				if (array[i].deck != null) {
-					var description = array[i].deck;
-				} else {
-					var description = "No Info Available";
-				}
-				$(this).animate({height: 'auto'});
-				$(this).animate({width: 'auto'});
-				$(this).css({backgroundColor: '#00ff00'})
-				$(this).css({color: '#000000'})
-				$(this).hide().slideDown().append("<div><b>Description:</b> " + description + "<br><b>Platform: </b>" + array[i].platforms[0].name + "<br><b>Release Date: </b>" + array[i].original_release_date + "</p></div>");
-			}
-		}
+		console.log("Hi")
+		$(this).children().toggleClass("hidden");
+
+		$(this).animate({height: 'auto'});
+		$(this).animate({width: 'auto'});
 	});
 });
 
